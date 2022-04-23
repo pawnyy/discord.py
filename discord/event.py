@@ -30,7 +30,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     import datetime
-    from typing import Optional, Sequence
+    from typing import Optional, Sequence, Union
 
     from discord import Emoji, Guild, GuildSticker, Integration, Invite, RawIntegrationDeleteEvent, User
     from discord.abc import GroupChannel, GuildChannel
@@ -168,7 +168,7 @@ class SocketRawReceive(Event):
 
 @dataclass(frozen=True)
 class SocketRawSend(Event):
-    payload: str | bytes
+    payload: Union[str, bytes]
 
 
 @dataclass(frozen=True)
